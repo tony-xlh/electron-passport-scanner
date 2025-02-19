@@ -12,11 +12,20 @@
       content="default-src 'self'; script-src 'self'"
     />
     <title>Hello from Electron renderer!</title>
+    <link href="./index.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-    <p id="info"></p>
+    <h2>Passport Scanner</h2>
+    <div>
+      <label>
+        Camera:
+        <select id="select-camera"></select>
+      </label>
+      <button id="button-start">Start Scanning</button>
+    </div>
+    <div>
+      <video id="camera" autoplay playsinline></video>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>
