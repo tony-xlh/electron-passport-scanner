@@ -1,0 +1,27 @@
+{
+  "name": "electron-passport-scanner",
+  "version": "1.0.0",
+  "description": "A electron demo to scan passports",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tony-xlh/electron-passport-scanner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tony-xlh/electron-passport-scanner/issues"
+  },
+  "homepage": "https://github.com/tony-xlh/electron-passport-scanner#readme",
+  "devDependencies": {
+    "electron": "^34.2.0"
+  },
+  "dependencies": {
+    "dynamsoft-capture-vision-for-node": "2.6.1004",
+    "dynamsoft-capture-vision-for-node-charactermodel": "^0.0.1"
+  }
+}

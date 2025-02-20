@@ -1,0 +1,21 @@
+video, canvas {
+  max-width: 100%;
+}
+
+.camera-container {
+  width: 50%;
+}
+
+.result-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.result-container[hidden] {
+  display: none;
+}
+
+canvas {
+  width: 50%;
+  object-fit: contain;
+}

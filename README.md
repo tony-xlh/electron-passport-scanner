@@ -1,2 +1,14 @@
 # electron-passport-scanner
-A electron demo to scan passports
+
+A electron demo to scan passports. It uses [Dynamsoft Label Recognizer](https://www.dynamsoft.com/label-recognition/overview/) to recognize the MRZ on passports to extract the owner's info.
+
+## How to Run
+
+```
+npm install
+npm run start
+```
+
+## License Application
+
+You can apply for a 30-day trial license [here](https://www.dynamsoft.com/customer/license/trialLicense/?product=dcv&package=cross-platform).

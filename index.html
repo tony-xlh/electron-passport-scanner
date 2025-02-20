@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>Passport Scanner</title>
+    <link href="./index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h2>Passport Scanner</h2>
+    <div>
+      <label>
+        Camera:
+        <select id="select-camera"></select>
+      </label>
+      <button id="button-start">Start Camera</button>
+      <button id="button-capture">Capture</button>
+    </div>
+    <div class="camera-container">
+      <video id="camera" autoplay playsinline></video>
+    </div>
+    <div class="result-container">
+      <canvas id="captured"></canvas>
+      <pre id="result"></pre>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
