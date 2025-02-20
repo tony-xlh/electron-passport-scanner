@@ -11,11 +11,12 @@ const createWindow = () => {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-  ipcMain.on('capture', (event, dataurl) => {
+  ipcMain.on('capture', async (event, dataurl) => {
     const webContents = event.sender
     console.log(webContents);
-    console.log(dataurl);
-    capture(dataurl);
+    const result = await capture(dataurl);
+    console.log(result);
+    webContents.send('update-result', result);
   })
   win.loadFile('index.html')
 }
@@ -285,12 +286,17 @@ function initDCV(){
     }
   ]
 }`;
-CaptureVisionRouter.initSettings(mrzTemplate);
+  CaptureVisionRouter.initSettings(mrzTemplate);
 }
 
 async function capture(dataurl){
   let response = await fetch(dataurl);
   let bytes = await response.bytes();
   let result = await CaptureVisionRouter.captureAsync(bytes, "ReadPassport");
-  console.log(result);
+  let jsonStr = "";
+  if (result.parsedResultItems.length > 0) {
+    let parsedResultItem = result.parsedResultItems[0];
+    jsonStr = JSON.stringify(parsedResultItem.parsed);
+  }
+  return jsonStr;
 }

@@ -3,6 +3,27 @@ window.onload = async function(){
   listDevices();
   document.getElementById("button-start").addEventListener("click",startCamera);
   document.getElementById("button-capture").addEventListener("click",capture);
+  window.Dynamsoft.onCaptured((value) => {
+    let fields = {};
+    let parsed = JSON.parse(value);
+    parsed.ResultInfo.forEach(item => {
+      getAllFields(fields,item);
+    });
+    document.getElementById("result").innerText = JSON.stringify(fields,null,4);
+  })
+}
+
+function getAllFields(fields,item){
+  fields[item.FieldName] = item.Value;
+  if (item.ChildFields && item.ChildFields.length>0) {
+    let ChildFields = item.ChildFields[0];
+    if (ChildFields){
+      for (let index = 0; index < ChildFields.length; index++) {
+        const childField = ChildFields[index];
+        getAllFields(fields,childField);
+      }
+    }
+  }
 }
 
 async function askForPermissions(){
@@ -85,5 +106,5 @@ async function capture(){
   closeStream(video.srcObject);
   video.setAttribute("hidden", "");
   document.getElementsByClassName("result-container")[0].removeAttribute("hidden");
-  window.Dynamsoft.capture(dataurl)
+  window.Dynamsoft.capture(dataurl);
 }
