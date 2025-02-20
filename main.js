@@ -220,7 +220,6 @@ function initDCV(){
   ],
   "CharacterModelOptions": [
     {
-      "DirectoryPath": "",
       "Name": "MRZ"
     }
   ],
