@@ -2,6 +2,8 @@
 
 A electron demo to scan passports. It uses [Dynamsoft Label Recognizer](https://www.dynamsoft.com/label-recognition/overview/) to recognize the MRZ on passports to extract the owner's info.
 
+![image](https://github.com/user-attachments/assets/ac2d7522-1b39-4632-b0ff-a627fc16ba76)
+
 ## How to Run
 
 ```
