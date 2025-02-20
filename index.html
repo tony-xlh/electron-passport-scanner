@@ -21,10 +21,15 @@
         Camera:
         <select id="select-camera"></select>
       </label>
-      <button id="button-start">Start Scanning</button>
+      <button id="button-start">Start Camera</button>
+      <button id="button-capture">Capture</button>
     </div>
-    <div>
+    <div class="camera-container">
       <video id="camera" autoplay playsinline></video>
+    </div>
+    <div class="result-container">
+      <canvas id="captured"></canvas>
+      <pre id="result"></pre>
     </div>
     <script src="./index.js"></script>
   </body>

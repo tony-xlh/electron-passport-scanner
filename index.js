@@ -1,7 +1,8 @@
 window.onload = async function(){
   await askForPermissions();
   listDevices();
-  document.getElementById("button-start").addEventListener("click",startScanning);
+  document.getElementById("button-start").addEventListener("click",startCamera);
+  document.getElementById("button-capture").addEventListener("click",capture);
 }
 
 async function askForPermissions(){
@@ -49,8 +50,10 @@ async function getCameraDevices(){
   return cameraDevices;
 }
 
-function startScanning(){
+function startCamera(){
+  console.log("startCamera")
   var video = document.getElementById("camera");
+  document.getElementsByClassName("result-container")[0].setAttribute("hidden","");
   var selectedCamera = camSelect.selectedOptions[0].value;
   var constraints = {
     audio:false,
@@ -64,8 +67,22 @@ function startScanning(){
   }
   navigator.mediaDevices.getUserMedia(constraints).then(function(camera) {
     video.srcObject = camera;
+    video.removeAttribute('hidden');
   }).catch(function(error) {
     alert('Unable to capture your camera. Please check console logs.');
     console.error(error);
   });
+}
+
+async function capture(){
+  var video = document.getElementById("camera");
+  var canvas = document.getElementById("captured");
+  var context = canvas.getContext("2d");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  var dataurl = canvas.toDataURL("image/jpeg");
+  closeStream(video.srcObject);
+  video.setAttribute("hidden", "");
+  document.getElementsByClassName("result-container")[0].removeAttribute("hidden");
 }
