@@ -11,6 +11,10 @@ video, canvas {
   align-items: flex-start;
 }
 
+.result-container[hidden] {
+  display: none;
+}
+
 canvas {
   width: 50%;
   object-fit: contain;
