@@ -85,4 +85,5 @@ async function capture(){
   closeStream(video.srcObject);
   video.setAttribute("hidden", "");
   document.getElementsByClassName("result-container")[0].removeAttribute("hidden");
+  window.Dynamsoft.capture(dataurl)
 }

@@ -19,5 +19,9 @@
   "homepage": "https://github.com/tony-xlh/electron-passport-scanner#readme",
   "devDependencies": {
     "electron": "^34.2.0"
+  },
+  "dependencies": {
+    "dynamsoft-capture-vision-for-node": "2.6.1004",
+    "dynamsoft-capture-vision-for-node-charactermodel": "^0.0.1"
   }
 }
