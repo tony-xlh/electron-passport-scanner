@@ -21,7 +21,7 @@
     "electron": "^34.2.0"
   },
   "dependencies": {
-    "dynamsoft-capture-vision-for-node": "3.6.4000",
+    "dynamsoft-capture-vision-for-node": "3.6.4002",
     "dynamsoft-capture-vision-for-node-model": "3.6.4000"
   }
 }
